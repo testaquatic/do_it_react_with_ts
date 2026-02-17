@@ -1,73 +1,88 @@
-# React + TypeScript + Vite
+# Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[https://vite.dev/guide/](https://vite.dev/guide/)
 
-Currently, two official plugins are available:
+책의 내용과 일부 설정 방법이 다른 부분이 있어서 정리한다.  
+프로젝트 생성은 create-react-app이 개발 중단된 것 같아서 [vite](https://vite.dev/guide/)를 사용했다.  
+놀랍게도 "[비트](https://www.google.com/search?q=%EB%B9%84%ED%8A%B8+%EB%B0%94%EC%9D%B4%ED%8A%B8+vite)"로 읽는다고 한다
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm create vite@latest
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## tailwind
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+뭔가 편한듯 불편한듯 하다.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+[https://tailwindcss.com/docs/installation/using-vite](https://tailwindcss.com/docs/installation/using-vite)
+
+1. 설치
+
+```bash
+npm install tailwindcss @tailwindcss/vite
+```
+
+2. vite 플러그인 설정(vite.config.ts)에 tailwindcss() 추가
+
+```javascript
+// vite.config.ts
+
+import { defineConfig } from "vite";
+import tailwindcss from "@tailwindcss/vite";
+
+export default defineConfig({
+  plugins: [tailwindcss()],
+});
+```
+
+3. CSS 수정
+
+```css
+@import "tailwindcss";
+```
+
+## 머터리얼 아이콘
+
+[https://www.npmjs.com/package/@fontsource/material-icons](https://www.npmjs.com/package/@fontsource/material-icons)
+
+1. 설치
+
+```bash
+npm install @fontsource/material-icons
+```
+
+2. CSS 수정
+
+```css
+@import "@fontsource/material-icons";
+```
+
+## daisyUI
+
+tailwind를 미리 설정해야 한다.
+
+[https://daisyui.com/docs/install/](https://daisyui.com/docs/install/)
+
+1. 설치
+
+```bash
+npm i -D daisyui@latest
+```
+
+2. CSS 수정
+
+"다이시(da-i-sy)"라는 일본어인줄 알았다.  
+꽃이 피는 식물(데이지)의 이름이다.  
+학창시절에 공부를 아예 안한 것도 아닌데 개무식하다.  
+하긴 기초적인 맞춤법을 틀리는 것을 보면 모국어라고 잘하는 것도 아니다.
+
+```css
+@plugin "daisyui";
+```
+
+## luxon, chance
+
+```bash
+npm install luxon chance
+npm install --save-dev @types/luxon @types/chance
 ```
