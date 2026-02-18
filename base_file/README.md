@@ -10,11 +10,11 @@
 npm create vite@latest
 ```
 
-## tailwind
-
-뭔가 편한듯 불편한듯 하다.
+## tailwindcss
 
 [https://tailwindcss.com/docs/installation/using-vite](https://tailwindcss.com/docs/installation/using-vite)
+
+뭔가 편한 듯 불편한 듯 하다.
 
 1. 설치
 
@@ -45,6 +45,8 @@ export default defineConfig({
 
 [https://www.npmjs.com/package/@fontsource/material-icons](https://www.npmjs.com/package/@fontsource/material-icons)
 
+플러터도 그렇고 대충 넣어도 그럴듯한 모양이 나온다.
+
 1. 설치
 
 ```bash
@@ -59,28 +61,32 @@ npm install @fontsource/material-icons
 
 ## daisyUI
 
-tailwind를 미리 설정해야 한다.
-
 [https://daisyui.com/docs/install/](https://daisyui.com/docs/install/)
+
+tailwind를 미리 설정해야 한다.  
+확실하게 편하다.
+
+"다이시(da-i-sy)"라는 일본어인줄 알았다.  
+꽃이 피는 식물(데이지, dai-sy)의 이름이다.  
+학창시절에 공부를 아예 놓은 것도 아닌데 개무식하다.  
+하긴 기초적인 맛츔뻡을 틀리는 것을 보면 모국어라고 잘하는 것도 아니다.
 
 1. 설치
 
 ```bash
-npm i -D daisyui@latest
+npm install --save-dev daisyui@latest
 ```
 
 2. CSS 수정
-
-"다이시(da-i-sy)"라는 일본어인줄 알았다.  
-꽃이 피는 식물(데이지)의 이름이다.  
-학창시절에 공부를 아예 안한 것도 아닌데 개무식하다.  
-하긴 기초적인 맞춤법을 틀리는 것을 보면 모국어라고 잘하는 것도 아니다.
 
 ```css
 @plugin "daisyui";
 ```
 
 ## luxon, chance
+
+[https://www.npmjs.com/package/luxon](https://www.npmjs.com/package/luxon)  
+[https://www.npmjs.com/package/chance](https://www.npmjs.com/package/chance)
 
 ```bash
 npm install luxon chance
