@@ -57,6 +57,11 @@ npm install @fontsource/material-icons
 
 ```css
 @import "@fontsource/material-icons";
+
+.material-icons {
+  font-family: "Material Icons";
+  display: "inline-block";
+}
 ```
 
 ## daisyUI
